@@ -1,22 +1,43 @@
+import { Admin } from 'db';
 import type { NextApiRequest, NextApiResponse } from 'next'
+import jwt from "jsonwebtoken"
+import { ensureDbConnected } from '@/lib/dbConnect';
+const SECRET = "SECRET"
 
 type Data = {
-  token : string
+  token? : string;
+  message : string
 }
 
 interface ExtendedNextApiRequest extends NextApiRequest {
     body: {
-      email: string;
+      username: string;
       password: string;
     };
   }
 
-export default function handler(
+interface MAS
+{
+    message : string
+}
+
+export default async function handler(
   req: ExtendedNextApiRequest,
   res: NextApiResponse<Data>
 ) {
-    const email = req.body.email;
-    const password = req.body.password;
+    await ensureDbConnected();
+    const { username, password } = req.body;
+    const admin = await Admin.findOne({username})
 
-    res.status(200).json({token : "VibhorPhalke si the bst of all time sit bst of ll tiaiudfhlkjah dfjh "})
+      if (admin) {
+        res.status(403).json({ message : 'Admin already exists'});
+      } 
+      else {
+        const obj = { username: username, password: password };
+        const newAdmin = new Admin(obj);
+        newAdmin.save();
+
+        const token = jwt.sign({ username, role: 'admin' }, SECRET, { expiresIn: '1h' });
+        res.json({ message: 'Admin created successfully', token });
+      }  
 }
