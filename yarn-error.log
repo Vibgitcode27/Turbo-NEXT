@@ -1,0 +1,46 @@
+Arguments: 
+  /usr/local/bin/node /home/vibhor/.yarn/bin/yarn.js install
+
+PATH: 
+  /home/vibhor/.yarn/bin:/home/vibhor/.config/yarn/global/node_modules/.bin:/home/vibhor/.yarn/bin:/home/vibhor/.config/yarn/global/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.17.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: ENOTEMPTY: directory not empty, rmdir '/media/vibhor/Database/vibhorspc/MERN Stack/MERN/week-11/mononext/apps/client/node_modules/@next/swc-linux-x64-gnu'
+
+npm manifest: 
+  {
+    "private": true,
+    "scripts": {
+      "build": "turbo run build",
+      "dev": "turbo run dev",
+      "lint": "turbo run lint",
+      "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    },
+    "devDependencies": {
+      "eslint": "^8.48.0",
+      "prettier": "^3.0.3",
+      "tsconfig": "*",
+      "turbo": "latest"
+    },
+    "name": "mononext",
+    "packageManager": "npm@10.2.3",
+    "workspaces": [
+      "apps/*",
+      "packages/*"
+    ]
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
