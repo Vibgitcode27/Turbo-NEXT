@@ -9,22 +9,18 @@ type Data = {
   message : string
 }
 
-interface ExtendedNextApiRequest extends NextApiRequest {
-    body: {
-      username: string;
-      password: string;
-    };
-  }
-
-interface MAS
-{
-    message : string
-}
+// interface ExtendedNextApiRequest extends NextApiRequest {
+//     body: {
+//       username: string;
+//       password: string;
+//     };
+//   }
 
 export default async function handler(
-  req: ExtendedNextApiRequest,
+  req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
+    console.log("Yes , call was actually made");
     await ensureDbConnected();
     const { username, password } = req.body;
     const admin = await Admin.findOne({username})
@@ -35,7 +31,7 @@ export default async function handler(
       else {
         const obj = { username: username, password: password };
         const newAdmin = new Admin(obj);
-        newAdmin.save();
+        await newAdmin.save();
 
         const token = jwt.sign({ username, role: 'admin' }, SECRET, { expiresIn: '1h' });
         res.json({ message: 'Admin created successfully', token });

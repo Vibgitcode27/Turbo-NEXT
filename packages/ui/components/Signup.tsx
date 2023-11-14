@@ -4,9 +4,9 @@ import {Card, Typography} from "@mui/material";
 import {useState} from "react";
 
 export function Signup(props : {
-    onClick : (email: string , password : string) => void
+    onClick : (username: string , password : string) => void
 }) {
-    const [email, setEmail] = useState("")
+    const [username, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
     return <div>
@@ -47,7 +47,7 @@ export function Signup(props : {
                     variant="contained"
                     onClick={() =>
                     {
-                        props.onClick(email , password)
+                        props.onClick(username , password)
                     }}
  > Signup</Button>
             </Card>
