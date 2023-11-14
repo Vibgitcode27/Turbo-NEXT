@@ -1,7 +1,10 @@
-import { Signup } from "ui";
+import { Signup } from "ui"
 
 export default function SignUp() {
     return <div>
-        <Signup/>
+        <Signup onClick={async(email , password) =>
+        {
+            
+        }}/>
     </div>
 }
