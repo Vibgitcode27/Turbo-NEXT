@@ -1,5 +1,5 @@
 import { selector } from "recoil";
-import { userState } from "../index.";
+import { userState } from "..";
 
 export const isUserLoading = selector({
     key : "isUserLoading" ,

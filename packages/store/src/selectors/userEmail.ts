@@ -1,8 +1,8 @@
 import { selector } from "recoil";
-import { userState } from "../index.";
+import { userState } from "..";
 
-export const userEmail = selector({
-    key : "userEmail" ,
+export const userEmailState = selector({
+    key : "userEmailState" ,
     get : ({get}) =>
     {
         const state = get(userState)

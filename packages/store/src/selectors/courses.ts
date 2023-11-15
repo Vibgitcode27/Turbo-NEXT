@@ -1,5 +1,5 @@
 import { selector } from "recoil";
-import { courseState } from "../index.";
+import { courseState } from "..";
 
 export const isCourseLoading = selector({
     key : "isCourseLoading" ,
