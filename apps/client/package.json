@@ -10,21 +10,22 @@
   },
   "dependencies": {
     "@types/jsonwebtoken": "^9.0.5",
+    "axios": "^1.6.2",
     "db": "*",
     "jsonwebtoken": "^9.0.2",
     "next": "14.0.2",
     "react": "^18",
     "react-dom": "^18",
-    "ui": "*",
-    "store" : "*"
+    "store": "*",
+    "ui": "*"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "db": "*",
+    "store": "*",
     "typescript": "^5",
-    "ui": "*",
-    "store" : "*"
+    "ui": "*"
   }
 }
